@@ -1,26 +1,16 @@
-function insert(num)
-        {
-            var numero = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = numero + num;
-        }
-        function clean()
-        {
-            document.getElementById('resultado').innerHTML = "";
-        }
-        function back()
-        {
-            var resultado = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
-        }
-        function calcular()
-        {
-            var resultado = document.getElementById('resultado').innerHTML;
-            if(resultado)
-            {
-                document.getElementById('resultado').innerHTML = eval(resultado);
-            }
-            else
-            {
-                document.getElementById('resultado').innerHTML = "Nada..."
-            }
-        }
+const display = document.querySelector("#display");
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+    if (btn.id === "="){
+        display.value = eval(display.value);
+    } else if (btn.id === "ac"){
+        display.value = "";
+    } else if (btn.id == "de"){
+        display.value = display.value.slice(0, -1);
+    } else{
+        display.value += btn.id;
+    }
+});
+});
